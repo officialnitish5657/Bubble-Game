@@ -6,8 +6,9 @@ let bubblecreated = 0;
 let timeid;
 let isstop = false;
 let hitnum;
+let is=0;
 
-
+//start button
 document.querySelector(".btn").innerHTML = `<div id="button" class="flex"><svg stroke-width="1.2" style="width: 25 ; padding-right:3;"
 stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="none" class="w-5 h-5"
 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -15,13 +16,13 @@ viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     d="M8 13V9m-2 2h4m5-2v.001M18 12v.001m4-.334v5.243a3.09 3.09 0 0 1-5.854 1.382L16 18a3.618 3.618 0 0 0-3.236-2h-1.528c-1.37 0-2.623.774-3.236 2l-.146.292A3.09 3.09 0 0 1 2 16.91v-5.243A6.667 6.667 0 0 1 8.667 5h6.666A6.667 6.667 0 0 1 22 11.667Z">
 </path>
 </svg>Let's Play</div>`;
-document.querySelector(".hint").style.marginTop = "100px";
+// document.querySelector(".hint").style.marginTop = "100%";
 
 document.querySelector("#button").addEventListener("click", function (e1) {
 
-    document.querySelector(".hint").style.marginTop = "0";
+    // document.querySelector(".hint").style.marginTop = "0";
     document.querySelector(".hint").innerHTML = `<div id="bubble"> </div>`;
-
+    is=1;
     start();
 
 });
@@ -29,7 +30,7 @@ function score() {
     s += 10;
     document.querySelector("#score").innerHTML = s;
 }
-
+// timing
 document.querySelector("#psbtn").addEventListener("click", function () {
 
     if (isstop) {
@@ -61,7 +62,8 @@ function update() {
     }
     else {
         clearInterval(timeid);
-        j = 0;
+        // document.querySelector(".hint").style.marginTop = "100%";
+        j = 0; is=0;
         document.querySelector(".btn").innerHTML = `<h5>You Score is: ${s}</h5>`
         s = 0;
         second = 10;
@@ -76,11 +78,12 @@ function update() {
         document.querySelector("#psbtn").innerHTML = '';
 
         document.querySelector("#button").addEventListener("click", function (e1) {
+            // document.querySelector(".hint").style.marginTop = "0";
             document.querySelector(".hint").innerHTML += `<div id="bubble"> </div>`;
             document.querySelector("#time").innerHTML = '45';
             document.querySelector("#score").innerHTML = s;
+            is=1;
             start();
-
         });
 
     }
@@ -96,7 +99,6 @@ function hitfun() {
     bubble();
 }
 function bubble() {
-    // document.querySelector(".hint").innerHTML +=`<div id="bubble"> </div>`;
     document.querySelector("#bubble").innerHTML = '';
     document.querySelector(".btn").innerHTML = '';
 
@@ -108,31 +110,35 @@ function bubble() {
 }
 
 document.querySelector(".hint").addEventListener("click", function (e2) {
-    
-    if (!isstop) {
+
+    // console.log(is)
+    if (is==1) {
+        // console.log(is)
         let num;
+            document.querySelector(".btn").innerHTML = '';
+            num = e2.target.textContent;
+            if (j === 0&&Number(num)<10) {
+
+                Play();
+                j = 1;
+            }
+            if (!isNaN(Number(num)) && Number(num) < 10) {
+                
+                if (Number(num) === hitnum) {
+                    score();
+                    hitfun();
+                }
+                
+                else if (Number(num) !== hitnum ) {
+                    // console.log(Number(num), hitnum);
+                    setTimeout(() => {
+                        e2.target.style.backgroundColor = "rgb(160, 252, 255)";
+
+                    }, 1000);
+                    e2.target.style.backgroundColor = "red";
+                }
+            }
         
-        document.querySelector(".btn").innerHTML = '';
-
-        num = e2.target.textContent;
-        if (j === 0) {
-
-            Play();
-            j = 1;
-        }
-        if (!isNaN(Number(num))) {
-            if (Number(num) === hitnum) {
-                score();
-                hitfun();
-            }
-            else if (Number(num) !== hitnum) {
-                setTimeout(() => {
-                    e2.target.style.backgroundColor = "rgb(160, 252, 255)";
-
-                }, 1000);
-                e2.target.style.backgroundColor = "red";
-            }
-        }
     }
 });
 

@@ -16,13 +16,13 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin:30px;
 
 }
 
 .container {
     background-color: rgb(160, 252, 255);
-    width: 79%;
+    width: 80%;
     border-radius: 16px;
     height: 70%;
     position: relative;
@@ -55,34 +55,28 @@ body {
     border:1px solid;
     position: relative;
     width: 99.7%;
+    border-radius: 0 0 17px 17px ;
     height: calc(100% - 70px);
-
-}
-
-#button {
-    border: 1px solid black;
 
 }
 
 #bubble {
     width: 99.7%;
     height:100%;
-    /* padding-top: 5%; */
     border-radius: 0 0 20px 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 3px;
-    /* border:2px solid red; */
 }
 
 .box {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 1px solid black;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
 
 }
 
@@ -126,7 +120,7 @@ body {
     font-size: 13px;
     font-family: 'Lucida Sans Regular';
     font-weight: bold;
-    padding: 5px 5px;
+    padding: 7px 4px;
     border-radius: 3px;
     background-color: white;
     box-shadow: inset 18px 20px 6px 17px rgba(206, 206, 206, 0.3);
@@ -178,7 +172,7 @@ h5 {
     position: absolute;
     left: 77.5px;
     top: 35px;
-    width: 1%;
+    width: 0%;
     height: 2px;
     background-color: black;
 
@@ -189,7 +183,7 @@ h5 {
     position: absolute;
     right: 66px;
     top: 35px;
-    width: 1%;
+    width: 0%;
     height: 2px;
     background-color: black;
 
@@ -229,21 +223,17 @@ h5 {
 #psbtn{
     width:25px;
     height: 25px;
-    /* border: 2px solid; */
     border-radius: 50%;
     margin:2px 0 0 83%;
 }
 .stop{
     width:20px;
     height: 20px;
-    /* border: 2px solid; */
     border-radius: 50%;
 }
 .hint{
     overflow: hidden;
-    /* border: 1px solid; */
     width:100%;
     height:calc( 100% - 30px);
-    /* margin-top: 100px; */
 }
 
