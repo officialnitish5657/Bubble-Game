@@ -1,7 +1,7 @@
 
 let s = 0;
 let j = 0;
-let second = 10;
+let second = 30;
 let bubblecreated = 0;
 let timeid;
 let isstop = false;
@@ -66,7 +66,7 @@ function update() {
         j = 0; is=0;
         document.querySelector(".btn").innerHTML = `<h5>You Score is: ${s}</h5>`
         s = 0;
-        second = 10;
+        second = 30;
         document.querySelector(".btn").innerHTML += `<div id="button" class="flex"><svg stroke-width="1.2" style="width: 25 ; padding-right:3;"
         stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="none" class="w-5 h-5"
         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
